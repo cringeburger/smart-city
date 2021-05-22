@@ -36,7 +36,7 @@ export default {
   data(){
       return{
           isActive:[
-              {Profile:false, Cataloge:true, Pass:false}
+              {Profile:false, Cataloge:false, Pass:true}
           ],
           userData:{
             login:'', 

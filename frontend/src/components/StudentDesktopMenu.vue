@@ -22,7 +22,7 @@
 </template>
 <script>
 export default {
-  name: 'DesktopMenu',
+  name: 'StudentsDesktopMenu',
   props:['isActive'],
   components:{
   }

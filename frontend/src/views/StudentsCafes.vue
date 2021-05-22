@@ -2,7 +2,7 @@
     <div id='students'>
         <Studentmenu
         v-bind:Active="isActive"/>
-       <StudentEnterProfile
+        <StudentEnterProfile
         v-if="userData.login==''"
         @addLoginToCookie="getUserInfo"/>
         <div class='container mt-5 text-center'
