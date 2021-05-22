@@ -43,6 +43,14 @@ export default new Router({
         path:'/commerce',
         component: ()=> import('@/views/Commerce')
       },
+      {
+        path:'/commerce/organizations',
+        component: ()=> import('@/views/CommerceOrganizations')
+      },
+      {
+        path:'/commerce/transactions',
+        component: ()=> import('@/views/CommerceTransactions')
+      }
 
     ]
   })
