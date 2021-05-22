@@ -42,3 +42,13 @@ export default {
     }
 }
 </script>
+<style scoped>
+.usercard{
+    background-color:#38BCB6ad;
+    border: 1px solid #38BCB6;
+    border-radius: 5px;
+}
+.card-body{
+    margin-top: auto;
+}
+</style>

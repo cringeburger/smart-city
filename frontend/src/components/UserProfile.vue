@@ -40,20 +40,26 @@
             <div class='col-12 col-md-6 offset-md-3 col-xxl-4 offset-xxl-4 text-center mt-4 mt-md-2 mt-xxl-0'>
                 <p class='h3 color-blue important-text'>Моя карта</p>
                 <div class='card usercard'>
-                    <div class='card-body'>
-                        <p class='color-blue h2 important-text'>{{UserData.card.number}}</p>
-                        <hr>
-                    </div>
-                    <p class='color-blue h2 important-text'>
-                        Баланс: &nbsp; {{UserData.card.balance}}
-                    </p>
-                    <p class='color-blue h2 important-text'>
-                        Бонусы: &nbsp; {{UserData.card.bonuce}}
-                    </p>
-                    <button class='btn balancebtn' @click="OpenBalanceModal()">
-                        <span class='important-text color-blue h4 pb-4'>пополнить&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></span>
-                    </button>
+                        <div class='row text-center mt-2'>
+                            <div class='col-6'>
+                                 <span class='color-blue h2 important-text'>{{UserData.card.balance}}</span>
+                                 <span class='color-orange h2 important-text'><i class="fa fa-rub" aria-hidden="true"></i></span>
+                            </div>
+                            <div class='col-6'>
+                                <span class='color-blue h2 important-text'>{{UserData.card.bonuce}}</span>
+                                <span class='color-orange h2 important-text'><i class="fa fa-bold" aria-hidden="true"></i></span>
+                            </div>
+                            <div class='col-12'>
+
+                            </div>
+                            <div class='col-12'>
+                                <p class='color-blue h2 important-text'>{{UserData.card.number}}</p>
+                            </div>
+                        </div>
                 </div>
+                <button class='btn balancebtn' @click="OpenBalanceModal()">
+                        <span class='important-text color-blue h4 pb-4'>пополнить&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></span>
+                </button>
             </div>
             <div class='col-12 mt-5 text-left mb-5'>
                 <div class='row text-center mt-2'>
@@ -215,10 +221,10 @@ export default {
                     {name:'', data:'', adress:'', link:''}
                 ],*/
                 subscribes:[
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'}
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'}
 
                 ],
                 transaction:[
@@ -233,9 +239,9 @@ export default {
                 ],
                 card: {number:'1234', balance:'2134', bonuce:'400'},
                 myorganization:[
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Заебись машина', adress:'Совесткий Союз', link:'', rating:'5'},
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
+                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
                     
                 ]
             },
@@ -311,13 +317,6 @@ export default {
                 this.UserData.card.balance=res.data;
             })*/
         },
-        updateOrganization(){
-            /*const path = 'http://localhost:5000/user_organization';
-            axios.post(path, this.userInfo)
-            .then((res) => {
-                this.UserData.myorganization=res.data;
-            })*/
-        },
         OpenAchivementsModal(){
             if(!this.achivementmodal){
                 this.achivementmodal=true;
@@ -346,13 +345,6 @@ export default {
             }else{
                 document.getElementById('MyOrganizationWindow').style.display='none';
                 this.OrgButton="fa-plus";
-            }
-        },
-        NewOrganization(){
-            if(!this.NewOrganizationWindow){
-                this.NewOrganizationWindow=true;
-            }else{
-                document.getElementById('newOrganizationWindow').style.display='block';
             }
         },
         ShowMyTransctions(){

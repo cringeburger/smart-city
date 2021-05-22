@@ -86,7 +86,7 @@ export default {
 }
 .usercard{
    
-    border: 1px solid #27187E;
+    border: 1px solid #7740A6;
     border-radius: 5px;
 }
 </style>

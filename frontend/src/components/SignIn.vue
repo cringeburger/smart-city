@@ -41,8 +41,9 @@ name: 'SingIn',
                 this.mistake='anotherLogin';
             }else{
                 this.mistake='';
-                document.cookie=this.serverData.login;
-                document.cookie=res.data
+                document.cookie=res.data.login;
+                document.cookie=res.data.token;
+                document.cookie=res.data.role;
                 this.$emit('addLoginToCookie');
             }
         })

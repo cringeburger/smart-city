@@ -74,7 +74,7 @@ export default {
                   {id:'2', title: 'Бронируйте'},
                   {id:'3', title: 'Получайте бонусы'},
                   {id:'4', title: 'Оставайтесь в курсе событий'},
-              ], bottomtext:'С умной картой Новороссийка', maincolor:'#62D0CB', background:'#62d0cb2c', icon:'fa-credit-card-alt', thirt: false},
+              ], bottomtext:'С умной картой Новороссийка', maincolor:'#2BB473', background:'#2BB4732c', icon:'fa-credit-card-alt', thirt: false},
 
 
               {id: 'cardItems2', title: 'На все случаи жизни', li:[
@@ -82,14 +82,14 @@ export default {
                   {id:'2', title: 'Для туристов'},
                   {id:'3', title: 'Для школьников'},
                   {id:'4', title: 'Для студентов'},
-              ], bottomtext:'Умная карта Новороссийка для всех', maincolor:'#F2CB40', background:'#F2CB402c', icon:'fa-random', thirt: false},
+              ], bottomtext:'Умная карта Новороссийка для всех', maincolor:'#F9AE40', background:'#F9AE402c', icon:'fa-random', thirt: false},
 
               {id: 'cardItems3', title: 'Для партнеров', li:[
                   {id:'1', title: 'Неограниченые услуги'},
                   {id:'2', title: 'Новостная лента'},
                   {id:'3', title: 'Обратная свзязь'},
                   {id:'4', title: 'Индивидуальная настройка'},
-              ], bottomtext:'Будьте на связи с клиентами с умной карты Новороссийка', maincolor:'#FF686B', background:'#FF686B2c', icon:'fa-cart-plus', thirt: true}
+              ], bottomtext:'Будьте на связи с клиентами с умной карты Новороссийка', maincolor:'#A32541', background:'#A325412c', icon:'fa-cart-plus', thirt: true}
           ]
       }
   },
@@ -116,7 +116,7 @@ export default {
     top: 0 !important;
     right: 0 !important;
     z-index: -1;
-    background: #27187E;
+    background: #7740A6;
     width: 56%;
     display: block;
 }
@@ -157,7 +157,7 @@ export default {
 #secondbanner::before {
     position: absolute;
     content: '';
-    background-color: #D7DBFF;
+    background-color: #27a9e16e;
     width: 100%;
     height: 90%;
     top: 0;

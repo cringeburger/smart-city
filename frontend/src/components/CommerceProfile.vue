@@ -43,30 +43,63 @@
                 @UpdateUserBalance="UpdateUserBalance"
                 v-bind:ecard="UserData.card"/>
             </div>
-
+            <div class='col-12 text-left mb-5'>
+                <div class='row mt-2'>
+                    <div class='col-12 text-left'>
+                        <p class='h2 color-blue important-text'>Счета организаций</p>
+                    </div>
+                    <hr>
+                    <div class="col-12">
+                        <div id='MyOrganizationWindow'>
+                            <div class='row row-flex row-flex-wrap'
+                            v-if="UserData.organizationCard[0].name!=''"> 
+                                <OrgECard
+                                    v-for="card of UserData.organizationCard" :key="card.id"
+                                    v-bind:card="card"
+                                    @UpdateOrgBalance="UpdateOrgBalance"/>
+                            </div>
+                            <div class='row' v-else>
+                                <div class='col-12 text-center'>
+                                    <p class='h4 text-blue'>У вас еще нет организации</p>
+                                    <button class='btn_default' @click="NewOrganization()">Создать</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <UserSetting
-        @exit="exit"
-        v-if="modal"/>
-        
+            @exit="exit"
+            v-if="modal"/>
+        <NewOrganization
+            v-if="NewOrganizationWindow"
+            @updateOrganization="updateOrganization"/>
     </div>
 </template>
 <script>
 //import axios from 'axios'
 import UserSetting from '@/components/UserSetting.vue'
 import ECard from '@/components/ECard.vue'
+import OrgECard from '@/components/OrgECard.vue'
+import NewOrganization from '@/components/NewOrganization.vue'
 export default {
     name:'UserProfile',
     components:{
         UserSetting,
-        ECard
+        ECard,
+        NewOrganization,
+        OrgECard
     },
     data(){
         return{
             UserData:{
                 img:"https://sun9-56.userapi.com/impf/c855424/v855424474/1254ba/ffbitJob7TQ.jpg?size=1321x2160&quality=96&sign=f616b9ba14a43f0b21493a53e864605b&type=album",
                 fio:'Микульский Банан Вадимович',
-                card: {number:'1234', balance:'2134'}
+                card: {number:'1234123412341234', balance:'2134'},
+                organizationCard:[
+                    {name:'Интертамент', number:'1234123412341234', balance:'500', ownernumber:'100', ownerbalance:'6000'}
+                ]
             },
             userInfo:{
                 login:'',
@@ -74,7 +107,8 @@ export default {
                 role:''
             },
             file: '',
-            modal:false
+            modal:false,
+            NewOrganizationWindow:false
         }
     },
     mounted(){
@@ -124,17 +158,26 @@ export default {
             .then((res) => {
                 this.UserData.card.balance=res.data;
             })*/
+        },
+        UpdateOrgBalance(){
+            /*const path = 'http://localhost:5000/commerce_organization_card';
+            axios.post(path, this.userInfo)
+            .then((res) => {
+                this.UserData.myorganization=res.data;
+            })*/
+        },
+        NewOrganization(){
+            if(!this.NewOrganizationWindow){
+                this.NewOrganizationWindow=true;
+            }else{
+                document.getElementById('newOrganizationWindow').style.display='block';
+            }
         }
     }
 }
 </script>
 
 <style scoped>
-.usercard{
-    background-color:#38BCB6ad;
-    border: 1px solid #38BCB6;
-    border-radius: 5px;
-}
 .balancebtn{
     height: 50px;
 }
@@ -190,7 +233,7 @@ export default {
     }
 }
 #MyOrganizationWindow{
-    display: none;
+    display: block;
 }
 @media (max-width:372px) {
     .transactionContainer{

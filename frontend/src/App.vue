@@ -44,10 +44,10 @@ export default {
    font-family: 'Vollkorn', serif;
  }
  .color-blue{
-  color: #27187E;
+  color: #7740A6;
  }
  .color-orange{
-   color: #FF8600;
+   color: #EF5A29;
  }
  .color-white{
    color: #f7f9fc;
@@ -60,8 +60,8 @@ export default {
     display: inline-block;
     width: 100%;
     border-radius: 5px;
-    border: 2px solid #FF8600 !important;
-    background-color: #FF8600 !important;
+    border: 2px solid #EF5A29 !important;
+    background-color: #EF5A29 !important;
     color: #F1F2F6 !important;
     width: auto;
     padding:10px;
@@ -73,17 +73,17 @@ export default {
     color: #F1F2F6 !important;
 }
 .btn_default:hover{
-    background-color: #27187E !important;
-    border: 2px solid #27187E !important;
+    background-color: #7740A6 !important;
+    border: 2px solid #7740A6 !important;
     transition: all 1s ease;
 }
 .btn-reverse{
-  border: 2px solid #27187E !important;
-  background-color: #27187E !important;
+  border: 2px solid #7740A6 !important;
+  background-color: #7740A6 !important;
 }
 .btn-reverse:hover{
-  border: 2px solid #FF8600 !important;
-  background-color: #FF8600 !important;
+  border: 2px solid #EF5A29 !important;
+  background-color: #EF5A29 !important;
 }
 .row-flex, .row-flex > div[class*='col-']{
     display: -webkit-box;

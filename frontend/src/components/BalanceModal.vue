@@ -93,8 +93,8 @@ export default {
     --bs-gutter-x: 0 !important;
 }
 .usercard{
-    background-color:#27187E;
-    border: 1px solid #27187E;
+    background-color:#7740A6;
+    border: 1px solid #7740A6;
     border-radius: 5px;
 }
 </style>
