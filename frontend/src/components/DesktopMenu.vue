@@ -19,6 +19,8 @@
             <li><hr class="dropdown-divider"></li>
             <li><router-link class="dropdown-item" to="/students">Учащимся</router-link></li>
             <li><router-link class="dropdown-item" to="/commerce">Партнерам</router-link></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><router-link class="dropdown-item" to="/reports">Ваши пожелания</router-link></li>
             </ul>
         </li>
         <li class="nav-item">

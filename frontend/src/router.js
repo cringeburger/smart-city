@@ -55,6 +55,10 @@ export default new Router({
         component: ()=> import('@/views/Intplace')
       },
       {
+        path:'/reports',
+        component: ()=> import('@/views/Reports')
+      },
+      {
         path:'/students',
         component: ()=> import('@/views/Students')
       },
