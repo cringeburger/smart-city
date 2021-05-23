@@ -10,15 +10,15 @@
             <span class='important-text'>Каталог</span></p>
         </div>
         <div class='col-12 text-center mt-2'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><i class="fa fa-cutlery" aria-hidden="true"></i></span>&nbsp;Оплата кафе</router-link></p>
+            <p class='h2'><router-link to='/students/cafe'><span class='color-orange'><i class="fa fa-cutlery" aria-hidden="true"></i></span>&nbsp;Оплата кафе</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><i class="fa fa-bus" aria-hidden="true"></i></span>&nbsp;Транспорт</router-link></p>
+            <p class='h2'><router-link to='/students/transport'><span class='color-orange'><i class="fa fa-bus" aria-hidden="true"></i></span>&nbsp;Транспорт</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center'>
-            <p class='h2'><router-link to='/students'><span class='color-orange'><i class="fa fa-home" aria-hidden="true"></i></span>&nbsp;Обычная версия сайта</router-link></p>
+            <p class='h2'><router-link to='/'><span class='color-orange'><i class="fa fa-home" aria-hidden="true"></i></span>&nbsp;Обычная версия сайта</router-link></p>
             <hr>
         </div>
     </div>

@@ -12,14 +12,14 @@
             <router-link class="nav-link" to="/commerce/organizations"
             v-bind:class="{active: isActive[0].Organization}">
             <span class='color-orange small-icon'><i class="fa fa-briefcase" aria-hidden="true"></i></span><br>
-            Организации
+            Фирмы
             </router-link>
         </li>
         <li class="nav-item">
             <router-link class="nav-link" to="/commerce/transactions"
             v-bind:class="{active: isActive[0].Transaction}">
             <span class='color-orange small-icon'><i class="fa fa-rub" aria-hidden="true"></i></span><br>
-            Транзакции
+            Операции
             </router-link>
         </li>
     </ul>

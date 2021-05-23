@@ -37,29 +37,32 @@
                     <p class='h2 color-blue'>{{UserData.fio}}</p>
                     <button class='btn_default' @click="OpenModal()">Настройка</button>
             </div>
-            <div class='col-12 col-md-6 offset-md-3 col-xxl-4 offset-xxl-4 text-center mt-4 mt-md-2 mt-xxl-0'>
+            <div class='col-12 col-md-6 offset-md-3  text-center mt-4 mt-md-2 mt-xxl-0'>
                 <p class='h3 color-blue important-text'>Моя карта</p>
                 <div class='card usercard'>
-                        <div class='row text-center mt-2'>
-                            <div class='col-6'>
-                                 <span class='color-blue h2 important-text'>{{UserData.card.balance}}</span>
-                                 <span class='color-orange h2 important-text'><i class="fa fa-rub" aria-hidden="true"></i></span>
-                            </div>
-                            <div class='col-6'>
-                                <span class='color-blue h2 important-text'>{{UserData.card.bonuce}}</span>
-                                <span class='color-orange h2 important-text'><i class="fa fa-bold" aria-hidden="true"></i></span>
-                            </div>
-                            <div class='col-12'>
-
-                            </div>
-                            <div class='col-12'>
-                                <p class='color-blue h2 important-text'>{{UserData.card.number}}</p>
-                            </div>
+                    <div class='row text-center mt-2'>
+                        <div class='col-6'>
+                                <span class='color-white h2 important-text'>{{UserData.card.balance}}</span>
+                                <span class='color-orange h2 important-text'><i class="fa fa-rub" aria-hidden="true"></i></span>
                         </div>
+                        <div class='col-6'>
+                            <span class='color-white h2 important-text'>{{UserData.card.bonuce}}</span>
+                            <span class='color-orange h2 important-text'><i class="fa fa-bold" aria-hidden="true"></i></span>
+                        </div>
+                        <div class='col-12'>
+                            <img class='img-fluid' src="https://cdn.discordapp.com/attachments/824547962821541888/845612351633883176/5.png"/>
+                        </div>
+                        <div class='col-12'>
+                            <hr>
+                            <p class='color-white h2 important-text mb-2'>{{UserData.card.number}}</p>
+                        </div>
+                        <div class='col-12'>
+                            <button class='btn balancebtn' @click="OpenBalanceModal()">
+                                    <span class='important-text color-white h4 pb-4'>пополнить&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <button class='btn balancebtn' @click="OpenBalanceModal()">
-                        <span class='important-text color-blue h4 pb-4'>пополнить&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></span>
-                </button>
             </div>
             <div class='col-12 mt-5 text-left mb-5'>
                 <div class='row text-center mt-2'>
@@ -97,37 +100,6 @@
                         <Subscribes
                         v-if="subscribeWindow"
                         v-bind:subs="UserData.subscribes"/>
-                    </div>
-                </div>
-            </div>
-            <div class='col-12 text-left mb-5'>
-                <div class='row mt-2'>
-                    <div class='col-6 text-left'>
-                        <p class='h2 color-blue important-text'>Мои Организации</p>
-                    </div>
-                    <div class='col-6 text-center'>
-                        <button class="btn" @click="ShowMyOrganization()">
-                           <span class='important-text color-blue h4'><i class="fa" aria-hidden="true"
-                           v-bind:class="OrgButton"></i></span>
-                        </button>
-                    </div>
-                    <hr>
-                    <div class="col-12">
-                        <div id='MyOrganizationWindow'>
-                            <div class='row row-flex row-flex-wrap'
-                            v-if="UserData.myorganization[0].name!=''"> 
-                                <Organizations
-                                    v-for="organzations of UserData.myorganization" :key="organzations.id"
-                                    v-bind:organzations="organzations"/>
-                                <button class='btn_default' @click="NewOrganization()">Создать</button>
-                            </div>
-                            <div class='row' v-else>
-                                <div class='col-12 text-center'>
-                                    <p class='h4 text-blue'>У вас еще нет организации</p>
-                                    <button class='btn_default' @click="NewOrganization()">Создать</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -183,14 +155,12 @@
     </div>
 </template>
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 import UserSetting from '@/components/UserSetting.vue'
 import BalanceModal from '@/components/BalanceModal.vue'
 import Achivements from '@/components/Achivements.vue'
 import AchivementModal from '@/components/AchivementModal.vue'
 import Subscribes from '@/components/Subscribes.vue'
-import Organizations from '@/components/Organizations.vue'
-import NewOrganization from '@/components/NewOrganization.vue'
 import TransactionTableColumm from '@/components/TransactionTableColumm.vue'
 export default {
     name:'UserProfile',
@@ -200,32 +170,15 @@ export default {
         Achivements,
         AchivementModal,
         Subscribes,
-        Organizations,
-        NewOrganization,
         TransactionTableColumm
     },
     data(){
         return{
             UserData:{
-                img:"https://sun9-56.userapi.com/impf/c855424/v855424474/1254ba/ffbitJob7TQ.jpg?size=1321x2160&quality=96&sign=f616b9ba14a43f0b21493a53e864605b&type=album",
-                fio:'Микульский Банан Вадимович',
-                achievments:[
-                    {name:'Ревизор 1', status: true, img:'https://cdn.discordapp.com/attachments/783709006258503691/845265827431055380/Achivments_review_1.png', progressbar:'100', tooltip:'Оставить 1 комментарий'},
-                    {name:'Актер 1', status: false, img:'https://cdn.discordapp.com/attachments/783709006258503691/845266701024755722/Achivments_photoreview_1.png', progressbar:'75', tooltip:'1 поход в театр'},
-                    {name:'Ревизор 1', status: true, img:'https://cdn.discordapp.com/attachments/783709006258503691/845265827431055380/Achivments_review_1.png', progressbar:'100', tooltip:'Оставить 1 комментарий'},
-                    {name:'Актер 1', status: false, img:'https://cdn.discordapp.com/attachments/783709006258503691/845266701024755722/Achivments_photoreview_1.png', progressbar:'75', tooltip:'1 поход в театр'},
-                    {name:'Ревизор 1', status: true, img:'https://cdn.discordapp.com/attachments/783709006258503691/845265827431055380/Achivments_review_1.png', progressbar:'100', tooltip:'Оставить 1 комментарий'},
-                    {name:'Актер 1', status: false, img:'https://cdn.discordapp.com/attachments/783709006258503691/845266701024755722/Achivments_photoreview_1.png', progressbar:'75', tooltip:'1 поход в театр'}
-                ],
-                /*events:[
-                    {name:'', data:'', adress:'', link:''}
-                ],*/
+                img:"",
+                fio:'',
+                achievments:[],
                 subscribes:[
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'}
-
                 ],
                 transaction:[
                     {type:'Пополнение', recipient:'Умная карта', value:'1000', data:'20-03-2000'},
@@ -237,13 +190,9 @@ export default {
                     {type:'Пополнение', recipient:'Умная карта', value:'1000', data:'20-03-2000'},
                     {type:'Пополнение', recipient:'Умная карта', value:'1000', data:'20-03-2000'}
                 ],
-                card: {number:'1234', balance:'2134', bonuce:'400'},
+                card: {},
                 myorganization:[
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    {name:'Жигули', img:'https://a.d-cd.net/9cAAAgCnlOA-960.jpg', type:'', content:'Хорошая машина', adress:'Совесткий Союз', link:'', rating:'5'},
-                    
-                ]
+                    ]
             },
             userInfo:{
                 login:'',
@@ -265,22 +214,21 @@ export default {
     },
     methods:{
         getUserData(){
-            //var userCoockie=document.cookie.split[';'];
-            /*this.userInfo.login=userCoockie[0];
+            var userCoockie=document.cookie.split(';');
+            this.userInfo.login=userCoockie[0];
             this.userInfo.token=userCoockie[1];
-            const path = 'http://localhost:5000/userData';
+            const path = 'http://26.173.145.160:5000/profile';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData=res.data;
-            })*/
-            document.getElementById('MyOrganizationWindow').style.display='none';
+            })
             document.getElementById('MyTransactionWindow').style.display='none';
         },
         UploadFile(){
             this.file = this.$refs.file.files[0];
             let formData = new FormData();
             formData.append('file', this.file);
-            /*const path = 'http://localhost:5000/userImage';
+            /*const path = 'http://26.173.145.160:5000/userImage';
             axios.post(path+ "?" + (new URLSearchParams(this.userInfo.token)).toString(), formData,
             {
                 headers: {
@@ -311,11 +259,11 @@ export default {
             }
         },
         UpdateUserBalance(){
-            /*const path = 'http://localhost:5000/user_balance';
+            const path = 'http://26.173.145.160:5000/user_balance';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData.card.balance=res.data;
-            })*/
+            })
         },
         OpenAchivementsModal(){
             if(!this.achivementmodal){
@@ -365,6 +313,7 @@ export default {
     background-color:#38BCB6ad;
     border: 1px solid #38BCB6;
     border-radius: 5px;
+    width: 100% !important;
 }
 .balancebtn{
     height: 50px;

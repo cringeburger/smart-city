@@ -6,7 +6,7 @@
         v-if="userData.login==''"
         @addLoginToCookie="getUserInfo"/>
         <div class='container mt-5 text-center'
-        v-else-if="userData.login!=''&&userData.userRole!='student'">
+        v-else-if="userData.login!=''&&userData.userRole!=` role='Учащийся'`">
             <p class='h3 color-blue'>Вы зашли не под аккаунтом учащегося<br>
             Выполнить вход с другого аккаунта?
             </p>
@@ -41,7 +41,7 @@ export default {
           userData:{
             login:'', 
             usertoken:'',
-            userRole:''
+            userRole:` role='Учащийся'`
           },
           img:''
       }
@@ -52,10 +52,9 @@ export default {
   methods:{
       getUserInfo(){
           if(document.cookie){
-              var userInfo=document.cookie.split(';');
-              this.userData.login=userInfo[0];
-              this.userData.usertoken=userInfo[1];
-              this.userData.userRole=userInfo[2];
+                var userCoockie=document.cookie.split(';');
+                this.userData.login=userCoockie[0];
+                this.userData.token=userCoockie[1];
               this.ShowQR();
           }else{
               this.userData.login='';
@@ -68,13 +67,15 @@ export default {
           this.getUserInfo();
       },
       ShowQR(){
-          if(this.userData.userRole=='student'){
+          if(this.userData.userRole==` role='Учащийся'`){
             /*
-            const path = 'http://localhost:5000/studentpass';
+            const path = 'http://26.173.145.160:5000/studentpass';
             axios.post(path, this.userData)
             .then((res) => {
                 this.img=res.data;
             })*/
+            var user_temp_token=this.userData.usertoken.split(" token=");
+            this.img='http://26.173.145.160:5000/send_qr?user_token='+user_temp_token[1];
           }
       }
   }

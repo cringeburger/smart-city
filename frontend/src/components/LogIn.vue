@@ -108,7 +108,7 @@ name: 'LogIn',
       LogInNewUser(){
         document.cookie=this.serverData.login;
         this.$emit('addLoginToCookie');
-        /*const path = 'http://localhost:5000/login';
+        /*const path = 'http://26.173.145.160:5000/login';
         axios.post(path, this.serverData)
         .then((res) => {
             if (res.data=='wrong'){

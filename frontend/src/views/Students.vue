@@ -3,7 +3,7 @@
         <Studentmenu
         v-bind:Active="isActive"/>
         <StudentProfile
-        v-if="login!=''&&userRole=='student'"
+        v-if="login!=''&&userRole==` role='Учащийся'`"
         @exit="getUserInfo"/>
         <StudentEnterProfile
         v-else-if="userRole==''"
@@ -37,21 +37,21 @@ export default {
           isActive:[
               {Profile:true, Cataloge:false, Pass:false}
           ],
-          login:'', 
+          login:'login', 
           usertoken:'',
-          userRole:''
+          userRole:` role='Учащийся'`
       }
   },
   mounted(){
-    this.getUserInfo();
+    //this.getUserInfo();
   },
   methods:{
       getUserInfo(){
           if(document.cookie){
-              var userInfo=document.cookie.split(';');
-              this.login=userInfo[0];
-              this.usertoken=userInfo[1];
-              this.userRole=userInfo[2];
+            var userCoockie=document.cookie.split(';');
+            this.userInfo.login=userCoockie[0];
+            this.userInfo.token=userCoockie[1];
+            this.userRole.token=userCoockie[2];
           }else{
               this.login='';
               this.usertoken='';

@@ -1,5 +1,5 @@
 <template>
-    <div class='container' id='userProfile'>
+    <div class='container paddingbottomm' id='commerceProfile'>
         <div class='row mt-5'>
             <div class='col-6 col-sm-5 col-lg-3 col-xxl-2'>
                 <div class='row'>
@@ -95,10 +95,11 @@ export default {
         return{
             UserData:{
                 img:"https://sun9-56.userapi.com/impf/c855424/v855424474/1254ba/ffbitJob7TQ.jpg?size=1321x2160&quality=96&sign=f616b9ba14a43f0b21493a53e864605b&type=album",
-                fio:'Микульский Банан Вадимович',
-                card: {number:'1234123412341234', balance:'2134'},
+                fio:'Микульский Никита Вадимович',
+                card: {number:'1234 1234 1234 1234', balance:'2000', bonuce:'120'},
                 organizationCard:[
-                    {name:'Интертамент', number:'1234123412341234', balance:'500', ownernumber:'100', ownerbalance:'6000'}
+                    {name:'Интертамент', number:'8888888888888888', balance:'500', ownernumber:'100', ownerbalance:'2000'},
+                    {name:'У Мо', number:'7777777777777777', balance:'500', ownernumber:'100', ownerbalance:'2000'}
                 ]
             },
             userInfo:{
@@ -116,10 +117,11 @@ export default {
     },
     methods:{
         getUserData(){
-            //var userCoockie=document.cookie.split[';'];
-            /*this.userInfo.login=userCoockie[0];
+          /*var userCoockie=document.cookie.split(';');
+            this.userInfo.login=userCoockie[0];
             this.userInfo.token=userCoockie[1];
-            const path = 'http://localhost:5000/commerceData';
+            this.userRole.token=userCoockie[2];
+            const path = 'http://26.173.145.160:5000/commerceData';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData=res.data;
@@ -129,7 +131,7 @@ export default {
             this.file = this.$refs.file.files[0];
             let formData = new FormData();
             formData.append('file', this.file);
-            /*const path = 'http://localhost:5000/userImage';
+            /*const path = 'http://26.173.145.160:5000/userImage';
             axios.post(path+ "?" + (new URLSearchParams(this.userInfo.token)).toString(), formData,
             {
                 headers: {
@@ -153,14 +155,14 @@ export default {
             this.$emit('exit');
         },
         UpdateUserBalance(){
-            /*const path = 'http://localhost:5000/user_balance';
+            /*const path = 'http://26.173.145.160:5000/user_balance';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData.card.balance=res.data;
             })*/
         },
         UpdateOrgBalance(){
-            /*const path = 'http://localhost:5000/commerce_organization_card';
+            /*const path = 'http://26.173.145.160:5000/commerce_organization_card';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData.myorganization=res.data;

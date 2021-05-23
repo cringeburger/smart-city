@@ -82,7 +82,7 @@ export default {
                   {id:'2', title: 'Для туристов'},
                   {id:'3', title: 'Для школьников'},
                   {id:'4', title: 'Для студентов'},
-              ], bottomtext:'Умная карта Новороссийка для всех', maincolor:'#F9AE40', background:'#F9AE402c', icon:'fa-random', thirt: false},
+              ], bottomtext:'Умная карта Новороссийка для всех', maincolor:'#7740A6', background:'#7740A62c', icon:'fa-random', thirt: false},
 
               {id: 'cardItems3', title: 'Для партнеров', li:[
                   {id:'1', title: 'Неограниченые услуги'},
