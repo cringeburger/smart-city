@@ -49,6 +49,10 @@
             <p class='h2'><router-link to='/commerce'><span class='color-orange'><i class="fa fa-money" aria-hidden="true"></i></span>&nbsp;Партнерам</router-link></p>
             <hr>
         </div>
+        <div class='col-12 text-center'>
+            <p class='h2'><router-link to='/reports'><span class='color-orange'><i class="fa fa-envelope" aria-hidden="true"></i></span>&nbsp;Ваши пожелания</router-link></p>
+            <hr>
+        </div>
     </div>
 </template>
 <script>

@@ -2,6 +2,13 @@
     <div id='Cafes' class='paddingbottomm'>
         <Menu
         v-bind:Active="isActive"/>
+        <div class='contariner mt-4'>
+            <div class='row'>
+                <div class='col-12 text-center'>
+                    <p class='h4'>Кинотеатры</p>
+                </div>
+            </div>
+        </div>
         <OrganizationList
         v-for="org of orga" :key="org.id"
                 v-bind:org="org"/>

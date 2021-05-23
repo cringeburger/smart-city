@@ -2,6 +2,13 @@
     <div id='intplace' class='paddingbottomm'>
         <Menu
         v-bind:Active="isActive"/>
+        <div class='contariner mt-4'>
+            <div class='row'>
+                <div class='col-12 text-center'>
+                    <p class='h4'>Интересные места</p>
+                </div>
+            </div>
+        </div>
         <InterestingPlaces
         v-for="org of org" :key="org.id"
                 v-bind:org="org"/>
