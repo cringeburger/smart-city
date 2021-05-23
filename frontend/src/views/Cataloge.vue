@@ -10,23 +10,35 @@
             <span class='important-text'>Каталог</span></p>
         </div>
         <div class='col-12 text-center mt-2'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><img src='@/assets/exhibition.svg'></span>&nbsp;Музеи</router-link></p>
+            <p class='h2'><router-link to='/museums'><span class='color-orange'><img src='@/assets/exhibition.svg'></span>&nbsp;Музеи</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center mt-2'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><img src='@/assets/theater.svg'></span>&nbsp;Театры</router-link></p>
+            <p class='h2'><router-link to='/theatres'><span class='color-orange'><img src='@/assets/theater.svg'></span>&nbsp;Театры</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center mt-2'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><i class="fa fa-film" aria-hidden="true"></i></span>&nbsp;Кинотеатры</router-link></p>
+            <p class='h2'><router-link to='/cinemas'><span class='color-orange'><i class="fa fa-film" aria-hidden="true"></i></span>&nbsp;Кинотеатры</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center mt-2'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><i class="fa fa-cutlery" aria-hidden="true"></i></span>&nbsp;Кафе и рестораны</router-link></p>
+            <p class='h2'><router-link to='/cafes'><span class='color-orange'><i class="fa fa-cutlery" aria-hidden="true"></i></span>&nbsp;Кафе и рестораны</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center'>
-            <p class='h2'><router-link to='/'><span class='color-orange'><i class="fa fa-bus" aria-hidden="true"></i></span>&nbsp;Транспорт</router-link></p>
+            <p class='h2'><router-link to='/transport'><span class='color-orange'><i class="fa fa-bus" aria-hidden="true"></i></span>&nbsp;Транспорт</router-link></p>
+            <hr>
+        </div>
+        <div class='col-12 text-center'>
+            <p class='h2'><router-link to='/Sports'><span class='color-orange'><i class="fa fa-heart" aria-hidden="true"></i></span>&nbsp;Спортивный досуг</router-link></p>
+            <hr>
+        </div>
+        <div class='col-12 text-center'>
+            <p class='h2'><router-link to='/Ecotrips'><span class='color-orange'><i class="fa fa-map-signs" aria-hidden="true"></i></span>&nbsp;Пешие прогулки</router-link></p>
+            <hr>
+        </div>
+        <div class='col-12 text-center'>
+            <p class='h2'><router-link to='/intplace'><span class='color-orange'><i class="fa fa-binoculars" aria-hidden="true"></i></span>&nbsp;Интересные места</router-link></p>
             <hr>
         </div>
         <div class='col-12 text-center'>

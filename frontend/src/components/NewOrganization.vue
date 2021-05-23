@@ -27,6 +27,8 @@
                                         <option value="museum">Музей</option>
                                         <option value="cinema">Кинотеатр</option>
                                         <option value="cafe">Кафе/ресторан</option>
+                                        <option value="sport">Спортивный досуг</option>
+                                        <option value="ecotrip">Пешие прогулки</option>
                                     </select>
                                 </div>
                                 <div class='col-8 offset-2 text-center mt-2'>
@@ -34,8 +36,12 @@
                                     <input type="text" class="form-control" id="validationDefault3" required v-model="serverData.adress">
                                 </div>
                                 <div class='col-8 offset-2 text-center mt-2'>
-                                <label for="exampleFormControlTextarea1" class="form-label h5">Отображаемое описание</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="120" v-model="serverData.content"></textarea>
+                                <label for="exampleFormControlTextarea1" class="form-label h5">Отображаемое короткое описание</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="60" v-model="serverData.SmallContent"></textarea>
+                                </div>
+                                <div class='col-8 offset-2 text-center mt-2'>
+                                <label for="exampleFormControlTextarea2" class="form-label h5">Отображаемое длинное описание</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" maxlength="300" v-model="serverData.BigContent"></textarea>
                                 </div>
                                 <div class='col-8 offset-2 text-center mt-2'>
                                     <div class="form-file">
@@ -80,7 +86,7 @@
     </div>
 </template>
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 export default {
     components:{
     },
@@ -91,7 +97,8 @@ export default {
                 token:'',
                 name:'',
                 type:'', 
-                content:'', 
+                SmallContent:'',
+                BigContent:'', 
                 adress:'',
                 email:'',
                 telegram:'',
@@ -109,17 +116,17 @@ export default {
             if(this.img==''||this.type==''){
                 document.getElementById('alert').style.display='block';
             }else{
-                /*var userCoockie=document.cookie.split[';'];
+                var userCoockie=document.cookie.split[';'];
                 this.serverData.login=userCoockie[0];
-                this.serverData.token=userCoockie[1];*/
+                this.serverData.token=userCoockie[1];
                 document.getElementById('alert').style.display='none';
-                /*const path = 'http://localhost:5000/new_organization';
+                const path = 'http://26.173.145.160:5000/new_organization';
                 axios.post(path, this.serverData)
                 .then((res) => {
                 this.organizationID=res.data;
-                let formData = new FormData();
+                /*let formData = new FormData();
                     formData.append('file', this.img);
-                const path = 'http://localhost:5000/organization_image';
+                const path = 'http://26.173.145.160:5000/organization_image';
                     axios.post(path+ "?" + (new URLSearchParams(this.organizationID)).toString(), formData,
                     {
                         headers: {
@@ -129,8 +136,10 @@ export default {
                     .then((res) => {
                         document.getElementById('newOrganizationWindow').style.display='none';
                         this.$emit('updateOrganization');
-                    })
-                })*/
+                    })*/
+                document.getElementById('newOrganizationWindow').style.display='none';
+                this.$emit('updateOrganization');
+                })
             }
             
         },

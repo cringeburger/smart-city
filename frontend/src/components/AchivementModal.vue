@@ -3,7 +3,7 @@
         <div class='overlay-content'>
             <div class='container'>
                 <div class='row'>
-                    <div class='col-12 text-center mt-4'>
+                    <div class='col-12 text-center'>
                         <div class='card usercard'>
                             <div class='row'>
                                 <div class='col-1 offset-11 text-center mt-md-4'>
@@ -27,7 +27,7 @@
     </div>
 </template>
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 import Achivements from '@/components/Achivements.vue'
 export default {
     components:{
@@ -40,24 +40,26 @@ export default {
                 token:'',
             },
             achievments:[
-                    {name:'', status: Boolean, img:'', progressbar:'', tooltip:''},
+                    {name:'', status: Boolean, img:'', progressbar:'', tooltip:''}
             ]
         }
+    },
+    mounted(){
+        this.getAllAchivements();
     },
     methods:{
         CloseModalWindow(){
           document.getElementById('achivementmodal').style.display='none';
         },
         getAllAchivements(){
-            /*var userCoockie=document.cookie.split[';'];
+            var userCoockie=document.cookie.split(';');
             this.serverData.login=userCoockie[0];
-            this.serverData.token=userCoockie[1];*/
-            /*const path = 'http://localhost:5000/allachivements';
+            this.serverData.token=userCoockie[1];
+            const path = 'http://26.173.145.160:5000/allachivements';
             axios.post(path, this.serverData)
             .then((res) => {
-                this.achievments=res.data;
-            })*/
-            document.getElementById('achivementmodal').style.display='none';
+                this.achievments=res.data.achievments;
+            })
         }
     }
 }
@@ -77,8 +79,6 @@ export default {
 }
 .overlay-content{
     position: absolute !important;
-    top: 10% !important;
-    margin-top:25px;
     width: 100%;
 }
 .btn{
@@ -86,7 +86,7 @@ export default {
 }
 .usercard{
    
-    border: 1px solid #27187E;
+    border: 1px solid #7740A6;
     border-radius: 5px;
 }
 </style>

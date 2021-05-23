@@ -41,13 +41,14 @@ name: 'SingIn',
                 this.mistake='anotherLogin';
             }else{
                 this.mistake='';
-                document.cookie=this.serverData.login;
-                document.cookie=res.data
+                document.cookie = "login="+res.data.login;
+                document.cookie = "token="+res.data.token;
+                document.cookie = "role="+res.data.role;
+                console.log(res.data.login);
+                console.log(document.cookie);
                 this.$emit('addLoginToCookie');
             }
         })
-        /*document.cookie=this.serverData.login;
-        this.$emit('addLoginToCookie');*/
       }
       
   }

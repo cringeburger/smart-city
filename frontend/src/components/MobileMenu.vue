@@ -40,12 +40,12 @@ export default {
     margin-left: -12px !important;
 }
 .nav-pills .nav-link.active{
-    color:#27187E;
-    text-decoration: solid underline #27187E;
+    color:#7740A6;
+    text-decoration: solid underline #7740A6;
     background-color: transparent;
 }
 a{
-    color:#27187E !important;
+    color:#7740A6 !important;
 }
 .nav-link{
     font-size: 1.5em;

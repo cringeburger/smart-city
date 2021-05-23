@@ -12,14 +12,14 @@
             <router-link class="nav-link" to="/commerce/organizations"
             v-bind:class="{active: isActive[0].Organization}">
             <span class='color-orange small-icon'><i class="fa fa-briefcase" aria-hidden="true"></i></span><br>
-            Организации
+            Фирмы
             </router-link>
         </li>
         <li class="nav-item">
             <router-link class="nav-link" to="/commerce/transactions"
             v-bind:class="{active: isActive[0].Transaction}">
             <span class='color-orange small-icon'><i class="fa fa-rub" aria-hidden="true"></i></span><br>
-            Транзакции
+            Операции
             </router-link>
         </li>
     </ul>
@@ -40,12 +40,12 @@ export default {
     margin-left: -12px !important;
 }
 .nav-pills .nav-link.active{
-    color:#27187E;
-    text-decoration: solid underline #27187E;
+    color:#7740A6;
+    text-decoration: solid underline #7740A6;
     background-color: transparent;
 }
 a{
-    color:#27187E !important;
+    color:#7740A6 !important;
 }
 .nav-link{
     font-size: 1.5em;

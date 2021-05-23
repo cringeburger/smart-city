@@ -7,7 +7,7 @@
 </template>
 <style scoped>
 .container-fluid{
-    background: #27187E;
+    background: #7740A6;
     height: 40px;
     color: #f7f9fc;
     bottom: 0 !important;

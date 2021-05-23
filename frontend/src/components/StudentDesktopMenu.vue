@@ -15,7 +15,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            <router-link class="nav-link" to="/students/profile"
+            <router-link class="nav-link" to="/students/pass"
             v-bind:class="{active: isActive[0].Pass}">Пропуск</router-link>
         </li>
     </ul>

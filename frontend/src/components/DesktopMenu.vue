@@ -8,11 +8,14 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
             v-bind:class="{active: isActive[0].Cataloge}">Каталог</a>
             <ul class="dropdown-menu">
-            <li><router-link class="dropdown-item" to="#">Музеи</router-link></li>
-            <li><router-link class="dropdown-item" to="#">Театры</router-link></li>
-            <li><router-link class="dropdown-item" to="#">Кинотеатры</router-link></li>
-            <li><router-link class="dropdown-item" to="#">Кафе и рестораны</router-link></li>
-            <li><router-link class="dropdown-item" to="#">Транспорт</router-link></li>
+            <li><router-link class="dropdown-item" to="/transport">Транспорт</router-link></li>
+            <li><router-link class="dropdown-item" to="/museums">Музеи</router-link></li>
+            <li><router-link class="dropdown-item" to="/theatres">Театры</router-link></li>
+            <li><router-link class="dropdown-item" to="/cinemas">Кинотеатры</router-link></li>
+            <li><router-link class="dropdown-item" to="/Cafes">Кафе и рестораны</router-link></li>
+            <li><router-link class="dropdown-item" to="/sports">Спортивный досуг</router-link></li>
+            <li><router-link class="dropdown-item" to="/Ecotrips">Пешие прогулки</router-link></li>
+            <li><router-link class="dropdown-item" to="/intplace">Интересные места</router-link></li>
             <li><hr class="dropdown-divider"></li>
             <li><router-link class="dropdown-item" to="/students">Учащимся</router-link></li>
             <li><router-link class="dropdown-item" to="/commerce">Партнерам</router-link></li>

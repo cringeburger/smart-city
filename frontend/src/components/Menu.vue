@@ -1,8 +1,17 @@
 <template>
     <div class='container-fluid pt-4'>
       <div class='row'>
-        <div class='col-12 col-lg-6 col-xl-5 text-center color-orange important-text'>
-              <router-link to='/'><h2><img src="@/assets/logo.png"/>&nbsp;Умный город</h2></router-link>
+        <div class='col-12 col-lg-6 col-xl-5 color-orange brand-text'>
+              <router-link to='/'>
+                <div class='row'>
+                  <div class='col-5 offset-1 text-left'>
+                    <h2><span class='brand'>НОВО<br>РОС<br>СИЙСК</span></h2>
+                  </div>
+                  <div class='col-2 text-left'>
+                    <img src="@/assets/logo.png" class='ml-5'/>
+                  </div>
+                </div>
+                </router-link>
         </div>
         <div class='col-lg-6 col-xl-7 d-none d-lg-block text-light important-text'>
         <DesktopMenu
@@ -32,10 +41,13 @@ export default {
 </script>
 <style scoped>
 img{
-  height: 50px;
+  height: 100px;
 }
 a{
   text-decoration: none !important;
   color: unset  !important;
+}
+.brand{
+  display: inline;
 }
 </style>

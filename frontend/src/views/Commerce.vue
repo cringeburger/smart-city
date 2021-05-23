@@ -1,15 +1,15 @@
 <template>
-    <div id='students'>
+    <div id='commerce'>
         <Commercemenu
         v-bind:Active="isActive"/>
         <CommerceProfile
-        v-if="userData.login!=''&&userData.userRole=='commerce'"
+        v-if="userData.login!=''&&userData.userRole==` role='Бизнес'`"
         @exit="getUserInfo"/>
         <ModalEnterProfile
         v-else-if="userData.userRole==''"
         @addLoginToCookie="getUserInfo"/>
         <div class='container mt-5 text-center'
-        v-else-if="userData.userRole=='student'">
+        v-else-if="userData.userRole==` role='Учащийся'`">
             <p class='h3 color-blue'>Вы зашли под аккаунтом учащегося<br>
             Данный раздел сайта вам не доступен, перезайти в аккаунт?
             </p>
@@ -48,7 +48,7 @@ export default {
           userData:{
             login:'1', 
             usertoken:'',
-            userRole:'commerce'
+            userRole:` role='Бизнес'`
           }
           
       }
@@ -74,7 +74,7 @@ export default {
           this.getUserInfo();
       },
       UpdateAccount(){
-          /*const path = 'http://localhost:5000/updateaccount';
+          /*const path = 'http://26.173.145.160:5000/updateaccount';
             axios.post(path, this.userData)
             .then((res) => {
                 this.userData=res.data;

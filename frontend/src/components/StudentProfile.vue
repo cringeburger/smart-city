@@ -37,22 +37,32 @@
                     <p class='h2 color-blue'>{{UserData.fio}}</p>
                     <button class='btn_default' @click="OpenModal()">Настройка</button>
             </div>
-            <div class='col-12 col-md-6 offset-md-3 col-xxl-4 offset-xxl-4 text-center mt-4 mt-md-2 mt-xxl-0'>
+            <div class='col-12 col-md-6 offset-md-3  text-center mt-4 mt-md-2 mt-xxl-0'>
                 <p class='h3 color-blue important-text'>Моя карта</p>
                 <div class='card usercard'>
-                    <div class='card-body'>
-                        <p class='color-blue h2 important-text'>{{UserData.card.number}}</p>
-                        <hr>
+                    <div class='row text-center mt-2'>
+                        <div class='col-6'>
+                                <span class='color-white h2 important-text'>{{UserData.card.balance}}</span>
+                                <span class='color-orange h2 important-text'><i class="fa fa-rub" aria-hidden="true"></i></span>
+                        </div>
+                        <div class='col-6'>
+                            <span class='color-white h2 important-text'>{{UserData.card.bonuce}}</span>
+                            <span class='color-orange h2 important-text'><i class="fa fa-bold" aria-hidden="true"></i></span>
+                        </div>
+                        <div class='col-12'>
+                            <img class='img-fluid' src="https://cdn.discordapp.com/attachments/824547962821541888/845612351633883176/5.png"/>
+                        </div>
+                        <div class='col-12'>
+                            <hr>
+                            <p class='color-white h2 important-text mb-2'>{{UserData.card.number}}</p>
+                        </div>
+                        <div class='col-12'>
+                            <button class='btn balancebtn' @click="OpenBalanceModal()">
+                                    <span class='important-text color-white h4 pb-4'>пополнить&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </button>
+                        </div>
+
                     </div>
-                    <p class='color-blue h2 important-text'>
-                        Баланс: &nbsp; {{UserData.card.balance}}
-                    </p>
-                    <p class='color-blue h2 important-text'>
-                        Бонусы: &nbsp; {{UserData.card.bonuce}}
-                    </p>
-                    <button class='btn balancebtn' @click="OpenBalanceModal()">
-                        <span class='important-text color-blue h4 pb-4'>пополнить&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></span>
-                    </button>
                 </div>
             </div>
             <div class='col-12 mt-5 text-left mb-5'>
@@ -124,7 +134,7 @@
     </div>
 </template>
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 import UserSetting from '@/components/UserSetting.vue'
 import BalanceModal from '@/components/BalanceModal.vue'
 import Achivements from '@/components/Achivements.vue'
@@ -180,21 +190,21 @@ export default {
     },
     methods:{
         getUserData(){
-            //var userCoockie=document.cookie.split[';'];
-            /*this.userInfo.login=userCoockie[0];
+            var userCoockie=document.cookie.split[';'];
+            this.userInfo.login=userCoockie[0];
             this.userInfo.token=userCoockie[1];
-            const path = 'http://localhost:5000/studentData';
+            const path = 'http://26.173.145.160:5000/studentData';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData=res.data;
-            })*/
+            })
             document.getElementById('MyTransactionWindow').style.display='none';
         },
         UploadFile(){
             this.file = this.$refs.file.files[0];
             let formData = new FormData();
             formData.append('file', this.file);
-            /*const path = 'http://localhost:5000/userImage';
+            /*const path = 'http://26.173.145.160:5000/userImage';
             axios.post(path+ "?" + (new URLSearchParams(this.userInfo.token)).toString(), formData,
             {
                 headers: {
@@ -225,11 +235,11 @@ export default {
             }
         },
         UpdateUserBalance(){
-            /*const path = 'http://localhost:5000/user_balance';
+            const path = 'http://26.173.145.160:5000/user_balance';
             axios.post(path, this.userInfo)
             .then((res) => {
                 this.UserData.card.balance=res.data;
-            })*/
+            })
         },
         OpenAchivementsModal(){
             if(!this.achivementmodal){
