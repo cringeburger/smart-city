@@ -1,7 +1,5 @@
 # Smart city frontend
 
-# УСТАНОВКА
-
 ## Project setup
 ```
 npm install
